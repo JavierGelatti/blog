@@ -3881,7 +3881,7 @@ header .entry-meta {
   border-radius: 3px; }
 
 body {
-  background-image: url(http://localhost:4000/images/triangular-pattern.png);
+  background-image: url(/images/triangular-pattern.png);
   background-attachment: fixed; }
 
 .dl-menuwrapper button:after {
