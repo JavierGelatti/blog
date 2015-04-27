@@ -3936,6 +3936,10 @@ blockquote {
       margin-left: -80px;
       margin-right: -80px; } }
 
+@media only screen and (min-width: 30em) {
+  .entry-image img {
+    max-width: none; } }
+
 /*
 .entry-image-index {
   margin-top: -25px;
