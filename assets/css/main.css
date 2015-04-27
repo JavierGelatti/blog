@@ -3945,15 +3945,42 @@ blockquote {
 #post .entry-content,
 #page .entry-content {
   margin: 40px 0 20px 0; }
+  @media only screen and (min-width: 48em) {
+    #post .entry-content,
+    #page .entry-content {
+      margin-left: 10px;
+      margin-right: 10px; } }
+  @media only screen and (min-width: 62.5em) {
+    #post .entry-content,
+    #page .entry-content {
+      margin: 50px auto 30px auto; } }
 #post #disqus_thread,
 #page #disqus_thread {
   margin: 40px 0 20px 0; }
+  @media only screen and (min-width: 48em) {
+    #post #disqus_thread,
+    #page #disqus_thread {
+      margin-left: 10px;
+      margin-right: 10px; } }
+  @media only screen and (min-width: 62.5em) {
+    #post #disqus_thread,
+    #page #disqus_thread {
+      margin: 0 auto 30px auto; } }
 
 .read-more {
   margin: 40px 0 20px 0; }
 
 #post-index #main {
   margin: 40px 0 20px 0; }
+  @media only screen and (min-width: 48em) {
+    #post-index #main {
+      margin-left: 20px;
+      margin-right: 20px; } }
+  @media only screen and (min-width: 62.5em) {
+    #post-index #main {
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto; } }
 
 /*
 .entry-image-index {
