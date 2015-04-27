@@ -3969,6 +3969,12 @@ blockquote {
 
 .read-more {
   margin: 40px 0 20px 0; }
+  @media only screen and (min-width: 48em) {
+    .read-more {
+      margin: 50px 10px 20px 10px; } }
+  @media only screen and (min-width: 62.5em) {
+    .read-more {
+      margin: 60px auto; } }
 
 #post-index #main {
   margin: 40px 0 20px 0; }
