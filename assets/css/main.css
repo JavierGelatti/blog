@@ -3942,6 +3942,19 @@ blockquote {
     .entry-image img {
       max-width: 100%; } }
 
+#post .entry-content,
+#page .entry-content {
+  margin: 40px 0 20px 0; }
+#post #disqus_thread,
+#page #disqus_thread {
+  margin: 40px 0 20px 0; }
+
+.read-more {
+  margin: 40px 0 20px 0; }
+
+#post-index #main {
+  margin: 40px 0 20px 0; }
+
 /*
 .entry-image-index {
   margin-top: -25px;
