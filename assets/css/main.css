@@ -3939,6 +3939,9 @@ blockquote {
 @media only screen and (min-width: 30em) {
   .entry-image img {
     max-width: none; } }
+@media only screen and (min-width: 48em) {
+  .entry-image img {
+    max-width: none; } }
 
 /*
 .entry-image-index {
