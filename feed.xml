@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Blog</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://javiergelatti.github.io/feed.xml" />
+<link rel="alternate" type="text/html" href="http://javiergelatti.github.io" />
+<updated>2015-04-27T13:24:56-03:00</updated>
+<id>http://javiergelatti.github.io/</id>
+<author>
+  <name>Facundo Javier Gelatti</name>
+  <uri>http://javiergelatti.github.io/</uri>
+  <email>javiergelatti@gmail.com</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[¿Cómo podemos generar números aleatorios?]]></title>
+ <link rel="alternate" type="text/html" href="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html" />
+  <id>http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios</id>
+  <published>2015-04-27T11:40:00-03:00</published>
+  <updated>2015-04-27T11:40:00-03:00</updated>
+  <author>
+    <name>Facundo Javier Gelatti</name>
+    <uri>http://javiergelatti.github.io</uri>
+    <email>javiergelatti@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Hay muchas razones por las que podemos necesitar números aleatorios. Por ejemplo, si queremos hacer &lt;em&gt;simulaciones&lt;/em&gt; realistas de sucesos naturales como el clima, si necesitamos &lt;em&gt;tomar muestras aleatorias&lt;/em&gt; de un conjunto grande (del que sería poco práctico examinar todos los casos), si tenemos que &lt;em&gt;tomar una decisión&lt;/em&gt; imparcial sobre algo, si estamos &lt;em&gt;programando un juego&lt;/em&gt; que necesite desde lanzar una moneda o un dado, hasta generar niveles en forma aleatoria o producir eventos tipo “20% de posibilidades de hacer un golpe crítico”, etc, etc.&lt;/p&gt;
+
+&lt;p&gt;Incluso, los números aleatorios pueden usarse simplemente para &lt;em&gt;crear cosas bonitas&lt;/em&gt;. Por ejemplo, la imagen de este post fué generada utilizando números aleatorios (&lt;a href=&quot;#cdigo-de-la-imagen-del-post&quot;&gt;mas abajo&lt;/a&gt; está el código que se usó para eso).&lt;/p&gt;
+
+&lt;h2 id=&quot;cmo-podemos-generar-nmeros-aleatorios&quot;&gt;¿Cómo podemos generar números aleatorios?&lt;/h2&gt;
+
+&lt;h3 id=&quot;podemos-usar-software&quot;&gt;¿Podemos usar Software?&lt;/h3&gt;
+&lt;p&gt;¿Puede una computadora generar números realmente aleatorios usando un algoritmo?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://javiergelatti.github.io/images/algoritmo_nros_aleatorios.png&quot; alt=&quot;Entradas-&amp;gt;Algoritmo X-&amp;gt;Secuencia de números aleatorios&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Después de todo, si tenemos un algoritmo que genere los números determinísticamente, ya estamos violando una de las &lt;a href=&quot;/2015/04/19/que-es-un-numero-aleatorio.html#los-nmeros-aleatorios&quot;&gt;afirmaciones sobre los números aleatorios&lt;/a&gt;, que nos dice que &lt;em&gt;los números son obtenidos &lt;strong&gt;al azar&lt;/strong&gt; de forma independiente&lt;/em&gt;. Siempre podríamos saber cuál va a ser el número siguiente de la secuencia si contamos con el algoritmo que la genera y lo ejecutamos con las mismas entradas, por lo que los números no habrían sido obtenidos realmente al azar. ¿Y si no podemos determinar las entradas para volver a ejecutar el algoritmo? Entonces significa que las entradas habrán sido aleatorias, entonces ¿Cómo hicimos para obtenerlas? (estamos en la misma).&lt;/p&gt;
+
+&lt;p&gt;En definitiva, este problema lo va a tener cualquier algoritmo. Por lo tanto (al parecer) no podemos hacer demasiado usando &lt;em&gt;Software&lt;/em&gt;. Entonces, si no podemos procesar los números, ¿Qué tal si los obtenemos de otra forma y los guardamos para usarlos después?&lt;/p&gt;
+
+&lt;p&gt;Podríamos construir una tabla gigante con números generados usando eventos aleatorios, por ejemplo números obtenidos al azar (a mano) de reportes de censos o tirando un dado un montón (pero un &lt;em&gt;montón&lt;/em&gt;) de veces, y cargarla en la computadora. Los programas entonces irían extrayendo los números de ahí. Y si no se nos ocurre de dónde sacar los números para la tabla, bueno, hay algunos libros que tienen justamente eso:&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;http://javiergelatti.github.io/images/a_million_random_digits.jpg&quot; alt=&quot;A Million Random Numbers&quot; /&gt;
+&lt;figcaption&gt;
+Libro &quot;Un millón de dígitos aleatorios&quot; (Si saben inglés, &lt;a href=&quot;http://www.amazon.com/Million-Random-Digits-Normal-Deviates/dp/0833030477/#revDivider&quot;&gt;lean las reseñas en Amazon&lt;/a&gt;)
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;El problema de esto es que quizás la tabla no sea lo suficientemente grande (esperemos que alcance con cargar todo el libro), además del tiempo que nos llevaría pasarla en la computadora, la memoria que ocuparía, y en general la molestia de estar preparando y manteniendo la tabla…&lt;/p&gt;
+
+&lt;p&gt;Entonces, ¿Qué otra forma puede haber para obtener los números (que no sea una tabla que haya que cargar)?. Bueno, podríamos pensar algo para generar los números usando &lt;em&gt;Hardware&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;intentando-generar-los-nmeros-con-hardware&quot;&gt;Intentando generar los números con Hardware&lt;/h3&gt;
+&lt;p&gt;Por ejemplo, podemos conectarle a la computadora algún dispositivo físico que sirva como fuente de eventos aleatorios, desde un sensor de ruido térmico o atmosférico, hasta un robot que lance un dado y lea el resultado. &lt;a href=&quot;http://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators&quot;&gt;En Wikipedia podemos encontrar una lista comparando algunos de estos generadores&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pero bueno, usar un dispositivo Hardware tiene sus inconvenientes, porque pueden ser caros, no generar los números con velocidad suficiente, o ser frágiles. Para colmo los fallos son bastante difíciles de detectar (¿Cómo podríamos detectar, dadas las secuencias aleatorias que genera la máquina, si tiene alguna falla?).&lt;/p&gt;
+
+&lt;p&gt;Además, si bien resolvemos el problema de obtener los números al azar, para que los números nos sean útiles tenemos que conocer su &lt;strong&gt;distribución&lt;/strong&gt;. Entonces ¿Cuál es la distribución de los eventos aleatorios que se producen? ¿Y se mantiene constante, o varía con el tiempo (por ejemplo, cambia a medida que se desgasta el dispositivo)?.&lt;/p&gt;
+
+&lt;p&gt;Obviamente, todas estas cosas van a depender del dispositivo, pero son solucionables. Y después de todo, al final vamos a tener un generador posta de números aleatorios.&lt;/p&gt;
+
+&lt;p&gt;Pero ¿Vale la pena? Bueno, si estamos generando claves criptográficas aleatorias, no queremos que nadie pueda adivinarlas. En esos casos sí se justifica un generador que utilice Hardware. Pero si lo que queremos es simular un dado para un juego, ¿Necesitamos tanta seguridad? Aparte, ¿Vamos a estar comprando un generador de números para conectarle a la compu solamente porque queremos hacer un jueguito que use un dado?&lt;/p&gt;
+
+&lt;h3 id=&quot;lo-que-realmente-necesitamos&quot;&gt;Lo que realmente necesitamos&lt;/h3&gt;
+&lt;p&gt;Lo que nos gustaría tener para hacer simulaciones es un generador de números que &lt;em&gt;parecerían ser aleatorios&lt;/em&gt;, pero que no necesariamente lo son. A estos números los denominamos &lt;strong&gt;pseudoaleatorios&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esto hace que las limitaciones que encontramos en la generación de los números usando &lt;em&gt;Software&lt;/em&gt; ya no tengan importancia. Generar los números usando un algoritmo nos da ventajas en simplicidad y velocidad de generación con respecto a las soluciones que usaban &lt;em&gt;Hardware&lt;/em&gt;. Aparte, como los números son generados en forma determinística, podemos regenerar una secuencia ya generada anteriormente (teniendo los valores de entrada que se usaron para generarla), lo que nos puede ser útil para realizar pruebas y depurar nuestros programas.&lt;/p&gt;
+
+&lt;p&gt;Entonces, hagamos un &lt;em&gt;bosquejo&lt;/em&gt; de los &lt;strong&gt;Requerimientos&lt;/strong&gt; que necesitamos para nuestro generador de números “aleatorios” (pseudoaleatorios realmente):&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;El generador va a generar los números respetando siempre una &lt;em&gt;distribución&lt;/em&gt; específica.&lt;/li&gt;
+  &lt;li&gt;El &lt;em&gt;período&lt;/em&gt; del generador debe ser grande. Esto es, si el generador, habiendo ya generado $k$ números, empieza a repetir toda o parte de la secuencia, $k$ debe ser grande.&lt;/li&gt;
+  &lt;li&gt;Se debe poder guardar el &lt;em&gt;estado&lt;/em&gt; del generador, para poder repetir los números generados si se desea (por ejemplo, para ejecutar una prueba del programa).&lt;/li&gt;
+  &lt;li&gt;El generador debe ser &lt;em&gt;eficiente&lt;/em&gt; en cuanto al tiempo de generación. No nos interesa un generador que se demore un mes para darnos el primer número.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Podemos ver que estos requerimientos no son precisos (por ejemplo, qué significa que $k$ “debe ser grande”, o qué es ser “eficiente en el tiempo de generación”), pero al menos nos dan una pauta general sobre qué es lo que necesitamos.&lt;/p&gt;
+
+&lt;p&gt;Ahora que nos decidimos a usar Software para la generación, y teniendo una idea sobre lo que queremos, en el próximo post vamos a empezar a ver algunos algoritmos para generar números aleatorios.&lt;/p&gt;
+
+&lt;h2 id=&quot;referencias&quot;&gt;Referencias&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Donald E. Knuth (1997) The Art of Computer Programming, Volume 2: Seminumerical Algorithms (3ra edición).&lt;/li&gt;
+  &lt;li&gt;James E. Gentle (2005) Random Number Generation and Monte Carlo Methods (2da edición).&lt;/li&gt;
+  &lt;li&gt;Universidad Autónoma de Madrid (2008) Curso de Estadística, &lt;a href=&quot;http://www.uam.es/personal_pdi/ciencias/dyakubov/ESTAD_2008/Tema_10D_Ya.pdf&quot;&gt;Tema 10: Simulación de Variables Aleatorias&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Colaboradores de Wikipedia (2015) &lt;a href=&quot;http://en.wikipedia.org/wiki/Applications_of_randomness&quot;&gt;Applications of randomness&lt;/a&gt;, Wikipedia, La enciclopedia libre.&lt;/li&gt;
+  &lt;li&gt;Colaboradores de Wikipedia (2015) &lt;a href=&quot;http://en.wikipedia.org/wiki/Hardware_random_number_generator&quot;&gt;Hardware Random Number Generator&lt;/a&gt;, Wikipedia, La enciclopedia libre.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;cdigo-de-la-imagen-del-post&quot;&gt;Código de la imagen del post&lt;/h2&gt;
+&lt;p&gt;Aquí está el código que escribí para generar la imagen del post. Cada vez que se ejecuta genera una imagen diferente. El color, tamaño y posición de los triángulos se calcula aleatoriamente.&lt;/p&gt;
+
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;14150&quot; data-slug-hash=&quot;XJvPpW&quot; data-default-tab=&quot;result&quot; data-user=&quot;javiergelatti&quot; class=&quot;codepen&quot;&gt;
+&lt;a href=&quot;http://codepen.io/javiergelatti/pen/XJvPpW/&quot;&gt;Ver el código&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html&quot;&gt;¿Cómo podemos generar números aleatorios?&lt;/a&gt; fué publicado originalmente por Facundo Javier Gelatti en &lt;a href=&quot;http://javiergelatti.github.io&quot;&gt;Blog&lt;/a&gt; el 27 de abril del 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[¿Qué es un número aleatorio?]]></title>
+ <link rel="alternate" type="text/html" href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html" />
+  <id>http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio</id>
+  <published>2015-04-19T17:58:01-03:00</published>
+  <updated>2015-04-19T17:58:01-03:00</updated>
+  <author>
+    <name>Facundo Javier Gelatti</name>
+    <uri>http://javiergelatti.github.io</uri>
+    <email>javiergelatti@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Después de haber visto los métodos de ordenamiento en clase de Algoritmos, mientras estaba practicandolos con un mazo de cartas, me surgió una duda. Así como hay algoritmos para ordenar cosas, ¿Qué pasa si lo que quiero ahora es mezclar el mazo de cartas?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://javiergelatti.github.io/images/ordenar_mezclar.png&quot; alt=&quot;3 1 2 &amp;lt;-mezclar/ordenar-&amp;gt; 1 2 3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Debería ser más fácil que ordenarlo, ¿No? Al menos no tengo que seguir un orden específico, podría hacer lo que quiera, pero ¿Cómo?.&lt;/p&gt;
+
+&lt;p&gt;Una forma que se nos puede ocurrir es asignar un número al azar a cada carta, y después ordenarlas según esos números. Por supuesto hay otras formas mas eficientes de mezclar un mazo de cartas, pero en todas entran en juego números elegidos al azar, o números aleatorios.&lt;/p&gt;
+
+&lt;p&gt;Pero, &lt;strong&gt;¿Cómo hago para elegir número al azar? ¿Existe algún algoritmo que pueda generar números realmente aleatorios?&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Obviamente que si buscamos en Google “Generar números al azar en &amp;lt;inserte su lenguaje favorito aquí&amp;gt;” seguramente encontraremos métodos del lenguaje tipo &lt;code&gt;Math.random()&lt;/code&gt;, pero la gracia, igual que con los métodos de ordenamiento, es conocer cómo funcionan esos algoritmos por dentro.&lt;/p&gt;
+
+&lt;h2 id=&quot;los-nmeros-aleatorios&quot;&gt;Los números aleatorios&lt;/h2&gt;
+&lt;p&gt;Entonces, empecemos por lo básico, queremos saber cómo generar números aleatorios, pero ¿Qué es un número aleatorio? Por ejemplo, ¿Es &lt;span id=&quot;span_aleatorio&quot;&gt;7&lt;/span&gt; un número aleatorio?
+&lt;script&gt; document.getElementById(&quot;span_aleatorio&quot;).innerHTML = Math.floor(Math.random()*9+1); &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Bueno, no podemos decir nada al respecto, pero si le preguntaríamos a &lt;em&gt;&lt;a href=&quot;http://es.wikipedia.org/wiki/Donald_Knuth&quot; title=&quot;Donald Knuth&quot;&gt;Knuth&lt;/a&gt;&lt;/em&gt; nos diría que:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;En realidad nunca hablamos de si un número particular es aleatorio, si no de una &lt;strong&gt;secuencia de números aleatorios independientes&lt;/strong&gt;, con una &lt;strong&gt;distribución&lt;/strong&gt; particular.
+Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener ninguna relación con los otros números de la secuencia, y que cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para entenderlo mejor, podemos dividir esto en dos afirmaciones:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Los números son obtenidos al azar en forma independiente.&lt;/li&gt;
+  &lt;li&gt;Los números tienen una distribución particular, esto es, cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;La primera afirmación nos dice que, por ejemplo, si nos dan los primeros 1000 números de una secuencia aleatoria, como cada número es obtenido de forma independiente de los demás, nos sería imposible calcular o adivinar de forma precisa cuál va a ser el siguiente número de la secuencia (solo podríamos acertar de suerte).&lt;/p&gt;
+
+&lt;p&gt;La segunda nos dice que los números de la secuencia responden a una distribución particular. Por ejemplo, si la distribución es como la siguiente:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://javiergelatti.github.io/images/ejemplo_distribucion.png&quot; alt=&quot;Ejemplo de distribución&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vemos que es más probable obtener números entre 1 y 4 que entre 9 y 10. De todos modos, los valores de la secuencia siguien siendo aleatorios, solo que la probabilidad de encontrar números entre 1 y 4 en la secuencia es mayor que la probabilidad de encontrar números entre 9 y 10.&lt;/p&gt;
+
+&lt;p&gt;Sin embargo, usualmente, cuando nos referimos a números aleatorios estamos pensando en que tenemos la misma probabilidad de obtener cualquier número, como cuando lanzamos un dado (que tenemos la misma probabilidad de obtener cualquier número del 1 al 6). Entonces, la distribución podría ser como la siguiente:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://javiergelatti.github.io/images/distribucion_uniforme_continua.png&quot; alt=&quot;Ejemplo de distribución uniforme contínua&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Este tipo de distribución se denomina &lt;strong&gt;distribución uniforme&lt;/strong&gt;, y se denota como $U(min, max)$, donde $min$ y $max$ representan los valores máximos y mínimos. En el ejemplo, la distribución sería $U(0, 10)$.&lt;/p&gt;
+
+&lt;p&gt;En el caso de que los números solo puedan tomar valores enteros entre 1 y 6 (como en un dado), pero no valores intermedios como 3.46, entonces tenemos una &lt;strong&gt;distribución uniforme discreta&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://javiergelatti.github.io/images/distribucion_uniforme_discreta.png&quot; alt=&quot;Ejemplo de distribución uniforme discreta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ahora, que cualquiera de los 6 números tenga la misma probabilidad de ser el siguiente en la secuencia no quiere decir que no pueda existir una secuencia donde aparezca 100 veces seguidas el número 4, aunque la probabilidad de que esto ocurra es bajísima ($\thicksim 1.53 \times 10^{-78}$). Además, como los números son independientes, si en la secuencia va apareciendo 99 veces seguidas el número 4, la probabilidad de que aparezca un 4 una vez más en la posición 100 sigue siendo $\frac{1}{6}$.&lt;/p&gt;
+
+&lt;p&gt;Bueno, ahora que sabemos exactamente qué es lo que queremos generar, en el siguiente post vamos a pensar de qué maneras podemos intentar generar una secuencia de números aleatorios.&lt;/p&gt;
+
+&lt;h2 id=&quot;referencias&quot;&gt;Referencias&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Donald E. Knuth (1997) The Art of Computer Programming, Volume 2: Seminumerical Algorithms (3ra edición).&lt;/li&gt;
+&lt;/ol&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html&quot;&gt;¿Qué es un número aleatorio?&lt;/a&gt; fué publicado originalmente por Facundo Javier Gelatti en &lt;a href=&quot;http://javiergelatti.github.io&quot;&gt;Blog&lt;/a&gt; el 19 de abril del 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>

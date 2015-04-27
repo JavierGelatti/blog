@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>¿Qué es un número aleatorio? &#8211; Blog</title>
+<meta name="description" content="Blog de Facundo Javier Gelatti">
+<meta name="keywords" content="Simulación, Números Aleatorios">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="es_AR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="¿Qué es un número aleatorio?">
+<meta property="og:description" content="Blog de Facundo Javier Gelatti">
+<meta property="og:url" content="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html">
+<meta property="og:site_name" content="Blog">
+
+
+
+
+
+<link rel="canonical" href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html">
+<link href="http://javiergelatti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://javiergelatti.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://javiergelatti.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://javiergelatti.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://javiergelatti.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://javiergelatti.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://javiergelatti.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://javiergelatti.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://javiergelatti.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" class="feature">
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">¡Tu navegador es demasiado viejo!</strong> Para tener una mejor experiencia en el sitio, actualizá tu navegador</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Abrir Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://javiergelatti.github.io/">Inicio</a></li>
+		<li>
+			<a href="#">Acerca de</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://javiergelatti.github.io/images/avatar.jpg" alt="Facundo Javier Gelatti photo" class="author-photo">
+					<h4>Facundo Javier Gelatti</h4>
+					<p>Me gusta aprender y crear cosas que valgan la pena. Estudiante de 4to año de ISI, UTN-FRT</p>
+				</li>
+				<li><a href="http://javiergelatti.github.io/about/">Acerca de</a></li>
+				<li>
+					<a href="mailto:javiergelatti@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://javiergelatti.github.io/posts/">Todos los Posts</a></li>
+				<li><a href="http://javiergelatti.github.io/tags/">Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+<div class="entry-header">
+  <div class="image-credit">Fuente de la imagen: <a href="http://xkcd.com/221/">xkcd</a></div><!-- /.image-credit -->
+  <div class="entry-image">
+    
+        <img src="http://imgs.xkcd.com/comics/random_number.png" alt="¿Qué es un número aleatorio?">
+    
+  </div><!-- /.entry-image -->
+</div><!-- /.entry-header -->
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html" rel="bookmark" title="¿Qué es un número aleatorio?">¿Qué es un número aleatorio?</a></h1>
+        
+        <h2>
+          <span class="entry-date date published"><time datetime="2015-04-19T17:58:01-03:00">abril 19, 2015</time></span>
+        </h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>Después de haber visto los métodos de ordenamiento en clase de Algoritmos, mientras estaba practicandolos con un mazo de cartas, me surgió una duda. Así como hay algoritmos para ordenar cosas, ¿Qué pasa si lo que quiero ahora es mezclar el mazo de cartas?</p>
+
+<p><img src="http://javiergelatti.github.io/images/ordenar_mezclar.png" alt="3 1 2 &lt;-mezclar/ordenar-&gt; 1 2 3" /></p>
+
+<p>Debería ser más fácil que ordenarlo, ¿No? Al menos no tengo que seguir un orden específico, podría hacer lo que quiera, pero ¿Cómo?.</p>
+
+<p>Una forma que se nos puede ocurrir es asignar un número al azar a cada carta, y después ordenarlas según esos números. Por supuesto hay otras formas mas eficientes de mezclar un mazo de cartas, pero en todas entran en juego números elegidos al azar, o números aleatorios.</p>
+
+<p>Pero, <strong>¿Cómo hago para elegir número al azar? ¿Existe algún algoritmo que pueda generar números realmente aleatorios?</strong>.</p>
+
+<p>Obviamente que si buscamos en Google “Generar números al azar en &lt;inserte su lenguaje favorito aquí&gt;” seguramente encontraremos métodos del lenguaje tipo <code>Math.random()</code>, pero la gracia, igual que con los métodos de ordenamiento, es conocer cómo funcionan esos algoritmos por dentro.</p>
+
+<h2 id="los-nmeros-aleatorios">Los números aleatorios</h2>
+<p>Entonces, empecemos por lo básico, queremos saber cómo generar números aleatorios, pero ¿Qué es un número aleatorio? Por ejemplo, ¿Es <span id="span_aleatorio">7</span> un número aleatorio?
+<script> document.getElementById("span_aleatorio").innerHTML = Math.floor(Math.random()*9+1); </script></p>
+
+<p>Bueno, no podemos decir nada al respecto, pero si le preguntaríamos a <em><a href="http://es.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Knuth</a></em> nos diría que:</p>
+
+<blockquote>
+  <p>En realidad nunca hablamos de si un número particular es aleatorio, si no de una <strong>secuencia de números aleatorios independientes</strong>, con una <strong>distribución</strong> particular.
+Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener ninguna relación con los otros números de la secuencia, y que cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.</p>
+</blockquote>
+
+<p>Para entenderlo mejor, podemos dividir esto en dos afirmaciones:</p>
+
+<ol>
+  <li>Los números son obtenidos al azar en forma independiente.</li>
+  <li>Los números tienen una distribución particular, esto es, cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.</li>
+</ol>
+
+<p>La primera afirmación nos dice que, por ejemplo, si nos dan los primeros 1000 números de una secuencia aleatoria, como cada número es obtenido de forma independiente de los demás, nos sería imposible calcular o adivinar de forma precisa cuál va a ser el siguiente número de la secuencia (solo podríamos acertar de suerte).</p>
+
+<p>La segunda nos dice que los números de la secuencia responden a una distribución particular. Por ejemplo, si la distribución es como la siguiente:</p>
+
+<p><img src="http://javiergelatti.github.io/images/ejemplo_distribucion.png" alt="Ejemplo de distribución" /></p>
+
+<p>Vemos que es más probable obtener números entre 1 y 4 que entre 9 y 10. De todos modos, los valores de la secuencia siguien siendo aleatorios, solo que la probabilidad de encontrar números entre 1 y 4 en la secuencia es mayor que la probabilidad de encontrar números entre 9 y 10.</p>
+
+<p>Sin embargo, usualmente, cuando nos referimos a números aleatorios estamos pensando en que tenemos la misma probabilidad de obtener cualquier número, como cuando lanzamos un dado (que tenemos la misma probabilidad de obtener cualquier número del 1 al 6). Entonces, la distribución podría ser como la siguiente:</p>
+
+<p><img src="http://javiergelatti.github.io/images/distribucion_uniforme_continua.png" alt="Ejemplo de distribución uniforme contínua" /></p>
+
+<p>Este tipo de distribución se denomina <strong>distribución uniforme</strong>, y se denota como $U(min, max)$, donde $min$ y $max$ representan los valores máximos y mínimos. En el ejemplo, la distribución sería $U(0, 10)$.</p>
+
+<p>En el caso de que los números solo puedan tomar valores enteros entre 1 y 6 (como en un dado), pero no valores intermedios como 3.46, entonces tenemos una <strong>distribución uniforme discreta</strong>:</p>
+
+<p><img src="http://javiergelatti.github.io/images/distribucion_uniforme_discreta.png" alt="Ejemplo de distribución uniforme discreta" /></p>
+
+<p>Ahora, que cualquiera de los 6 números tenga la misma probabilidad de ser el siguiente en la secuencia no quiere decir que no pueda existir una secuencia donde aparezca 100 veces seguidas el número 4, aunque la probabilidad de que esto ocurra es bajísima ($\thicksim 1.53 \times 10^{-78}$). Además, como los números son independientes, si en la secuencia va apareciendo 99 veces seguidas el número 4, la probabilidad de que aparezca un 4 una vez más en la posición 100 sigue siendo $\frac{1}{6}$.</p>
+
+<p>Bueno, ahora que sabemos exactamente qué es lo que queremos generar, en el siguiente post vamos a pensar de qué maneras podemos intentar generar una secuencia de números aleatorios.</p>
+
+<h2 id="referencias">Referencias</h2>
+<ol>
+  <li>Donald E. Knuth (1997) The Art of Computer Programming, Volume 2: Seminumerical Algorithms (3ra edición).</li>
+</ol>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://javiergelatti.github.io/tags/#Simulación" title="Pages tagged Simulación" class="tag"><span class="term">Simulación</span></a><a href="http://javiergelatti.github.io/tags/#Números Aleatorios" title="Pages tagged Números Aleatorios" class="tag"><span class="term">Números Aleatorios</span></a></span>
+        
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://javiergelatti.github.io" class="read-more-btn">Quizás te interese</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html" title="¿Cómo podemos generar números aleatorios?">¿Cómo podemos generar números aleatorios?</a></h3>
+      <p>Hay muchas razones por las que podemos necesitar números aleatorios. Por ejemplo, si queremos hacer *simulaciones* realistas de sucesos n...&hellip; <a href="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html">Seguir Leyendo</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>
+Este trabajo está bajo una licencia <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons (CC BY-SA 4.0)</a>.
+
+Creado en <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> usando <a href="http://mademistakes.com/hpstr/" rel="notfollow">el tema HPSTR</a>.<br />
+
+La imagen de fondo está basada en <a href="http://karoliskj.deviantart.com/art/Triangular-Pattern-326992420">Triangular Pattern</a> de KarolisKJ (CC BY-NC-SA 3.0).
+</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://javiergelatti.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://javiergelatti.github.io/assets/js/scripts.min.js"></script>
+
+
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'javiergelatti'; // required: replace example with your forum shortname
+        var disqus_identifier = '/2015/04/19/que-es-un-numero-aleatorio';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Debes habilitar JavaScript para poder ver los <a href="http://disqus.com/?ref_noscript">comentarios en Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>
