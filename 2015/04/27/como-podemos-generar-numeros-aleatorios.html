@@ -137,7 +137,7 @@
 
 <p><img src="http://javiergelatti.github.io/images/algoritmo_nros_aleatorios.png" alt="Entradas-&gt;Algoritmo X-&gt;Secuencia de números aleatorios" /></p>
 
-<p>Después de todo, si tenemos un algoritmo que genere los números determinísticamente, ya estamos violando una de las <a href="/2015/04/19/que-es-un-numero-aleatorio.html#los-nmeros-aleatorios">afirmaciones sobre los números aleatorios</a>, que nos dice que <em>los números son obtenidos <strong>al azar</strong> de forma independiente</em>. Siempre podríamos saber cuál va a ser el número siguiente de la secuencia si contamos con el algoritmo que la genera y lo ejecutamos con las mismas entradas, por lo que los números no habrían sido obtenidos realmente al azar. ¿Y si no podemos determinar las entradas para volver a ejecutar el algoritmo? Entonces significa que las entradas habrán sido aleatorias, entonces ¿Cómo hicimos para obtenerlas? (estamos en la misma).</p>
+<p>Después de todo, si tenemos un algoritmo que genere los números determinísticamente, ya estamos violando una de las <a href="/2015/04/19/que-es-un-numero-aleatorio.html#los-nmeros-aleatorios">afirmaciones sobre los números aleatorios</a>, que nos dice que <em>los números son obtenidos <strong>al azar</strong> de forma independiente</em>. Siempre podríamos saber cuál va a ser el número siguiente de la secuencia si tenemos el algoritmo que la genera y lo ejecutamos con las mismas entradas, por lo que los números no habrían sido obtenidos realmente al azar. ¿Y si no podemos saber de ninguna forma cuáles fueron las entradas para volver a ejecutar el algoritmo? Entonces significa que las entradas habrán sido aleatorias, entonces ¿Cómo hicimos para obtenerlas? (estamos en la misma).</p>
 
 <p>En definitiva, este problema lo va a tener cualquier algoritmo. Por lo tanto (al parecer) no podemos hacer demasiado usando <em>Software</em>. Entonces, si no podemos procesar los números, ¿Qué tal si los obtenemos de otra forma y los guardamos para usarlos después?</p>
 
@@ -150,20 +150,20 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 </figcaption>
 </figure>
 
-<p>El problema de esto es que quizás la tabla no sea lo suficientemente grande (esperemos que alcance con cargar todo el libro), además del tiempo que nos llevaría pasarla en la computadora, la memoria que ocuparía, y en general la molestia de estar preparando y manteniendo la tabla…</p>
+<p>El problema de esto es que quizás la tabla no sea lo suficientemente grande (esperemos que alcance con cargar todo el libro), además del tiempo que nos llevaría ingresarla en la computadora, la memoria que ocuparía, y en general la molestia de estar preparando y manteniendo la tabla…</p>
 
 <p>Entonces, ¿Qué otra forma puede haber para obtener los números (que no sea una tabla que haya que cargar)?. Bueno, podríamos pensar algo para generar los números usando <em>Hardware</em>.</p>
 
 <h3 id="intentando-generar-los-nmeros-con-hardware">Intentando generar los números con Hardware</h3>
 <p>Por ejemplo, podemos conectarle a la computadora algún dispositivo físico que sirva como fuente de eventos aleatorios, desde un sensor de ruido térmico o atmosférico, hasta un robot que lance un dado y lea el resultado. <a href="http://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators">En Wikipedia podemos encontrar una lista comparando algunos de estos generadores</a>.</p>
 
-<p>Pero bueno, usar un dispositivo Hardware tiene sus inconvenientes, porque pueden ser caros, no generar los números con velocidad suficiente, o ser frágiles. Para colmo los fallos son bastante difíciles de detectar (¿Cómo podríamos detectar, dadas las secuencias aleatorias que genera la máquina, si tiene alguna falla?).</p>
+<p>Pero bueno, usar un dispositivo Hardware tiene sus inconvenientes, porque pueden ser caros, no generar los números con velocidad suficiente, o ser frágiles. Para colmo, los fallos son bastante difíciles de detectar (¿Cómo podríamos detectar, dadas las secuencias aleatorias que genera la máquina, si tiene alguna falla?).</p>
 
 <p>Además, si bien resolvemos el problema de obtener los números al azar, para que los números nos sean útiles tenemos que conocer su <strong>distribución</strong>. Entonces ¿Cuál es la distribución de los eventos aleatorios que se producen? ¿Y se mantiene constante, o varía con el tiempo (por ejemplo, cambia a medida que se desgasta el dispositivo)?.</p>
 
-<p>Obviamente, todas estas cosas van a depender del dispositivo, pero son solucionables. Y después de todo, al final vamos a tener un generador posta de números aleatorios.</p>
+<p>Obviamente, todas estas cuestiones van a depender del dispositivo, pero son solucionables. Y después de todo, al final vamos a tener un generador posta de números aleatorios.</p>
 
-<p>Pero ¿Vale la pena? Bueno, si estamos generando claves criptográficas aleatorias, no queremos que nadie pueda adivinarlas. En esos casos sí se justifica un generador que utilice Hardware. Pero si lo que queremos es simular un dado para un juego, ¿Necesitamos tanta seguridad? Aparte, ¿Vamos a estar comprando un generador de números para conectarle a la compu solamente porque queremos hacer un jueguito que use un dado?</p>
+<p>Pero ¿Vale la pena? Bueno, si estamos generando claves criptográficas aleatorias, realmente no queremos que nadie pueda adivinarlas. En esos casos sí se justifica un generador que utilice Hardware. Pero si lo que queremos es simular un dado para un juego, ¿Necesitamos tanta seguridad? Aparte, ¿Vamos a estar comprando un generador de números para conectarle a la compu solamente porque queremos hacer un jueguito que use un dado?</p>
 
 <h3 id="lo-que-realmente-necesitamos">Lo que realmente necesitamos</h3>
 <p>Lo que nos gustaría tener para hacer simulaciones es un generador de números que <em>parecerían ser aleatorios</em>, pero que no necesariamente lo son. A estos números los denominamos <strong>pseudoaleatorios</strong>.</p>
@@ -173,10 +173,11 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 <p>Entonces, hagamos un <em>bosquejo</em> de los <strong>Requerimientos</strong> que necesitamos para nuestro generador de números “aleatorios” (pseudoaleatorios realmente):</p>
 
 <ol>
-  <li>El generador va a generar los números respetando siempre una <em>distribución</em> específica.</li>
+  <li>El generador va a generar los números respetando siempre una <em>distribución</em> específica. Vamos a optar por la <a href="/2015/04/19/que-es-un-numero-aleatorio.html#distribucion-uniforme">distribución uniforme</a> para la generación.</li>
   <li>El <em>período</em> del generador debe ser grande. Esto es, si el generador, habiendo ya generado $k$ números, empieza a repetir toda o parte de la secuencia, $k$ debe ser grande.</li>
   <li>Se debe poder guardar el <em>estado</em> del generador, para poder repetir los números generados si se desea (por ejemplo, para ejecutar una prueba del programa).</li>
   <li>El generador debe ser <em>eficiente</em> en cuanto al tiempo de generación. No nos interesa un generador que se demore un mes para darnos el primer número.</li>
+  <li>El generador debe ser <em>eficiente</em> en cuanto al uso de la memoria. Si ya decidimos no cargar toda una tabla, más vale que el generador utilice menos memoria que eso.</li>
 </ol>
 
 <p>Podemos ver que estos requerimientos no son precisos (por ejemplo, qué significa que $k$ “debe ser grande”, o qué es ser “eficiente en el tiempo de generación”), pero al menos nos dan una pauta general sobre qué es lo que necesitamos.</p>
@@ -193,7 +194,7 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 </ol>
 
 <h2 id="cdigo-de-la-imagen-del-post">Código de la imagen del post</h2>
-<p>Aquí está el código que escribí para generar la imagen del post. Cada vez que se ejecuta genera una imagen diferente. El color, tamaño y posición de los triángulos se calcula aleatoriamente.</p>
+<p>Aquí está el código que escribí para generar la imagen del post. Cada vez que se ejecuta genera una imagen diferente. El color, tamaño y posición de los triángulos se obtienen de forma aleatoria.</p>
 
 <p data-height="268" data-theme-id="14150" data-slug-hash="XJvPpW" data-default-tab="result" data-user="javiergelatti" class="codepen">
 <a href="http://codepen.io/javiergelatti/pen/XJvPpW/">Ver el código</a>.
@@ -204,7 +205,8 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://javiergelatti.github.io/tags/#Simulación" title="Pages tagged Simulación" class="tag"><span class="term">Simulación</span></a><a href="http://javiergelatti.github.io/tags/#Números Aleatorios" title="Pages tagged Números Aleatorios" class="tag"><span class="term">Números Aleatorios</span></a></span>
-        
+        <span>Actualizado el <span class="entry-date date updated"><time datetime="2015-05-01">01 de mayo, 2015</time></span></span>
+        <span class="author vcard"><span class="fn">Facundo Javier Gelatti</span></span>
         
       </footer>
     </div><!-- /.entry-content -->
@@ -216,7 +218,7 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html" title="¿Qué es un número aleatorio?">¿Qué es un número aleatorio?</a></h3>
-      <p>Después de haber visto los métodos de ordenamiento en clase de Algoritmos, mientras estaba practicandolos con un mazo de cartas, me surgi...&hellip; <a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html">Seguir Leyendo</a></p>
+      <p>Después de haber visto varios métodos de ordenamiento en clase de Algoritmos, mientras estaba ordenando un mazo de cartas para practicar,...&hellip; <a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html">Seguir Leyendo</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">

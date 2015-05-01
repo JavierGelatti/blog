@@ -126,7 +126,7 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <p>Después de haber visto los métodos de ordenamiento en clase de Algoritmos, mientras estaba practicandolos con un mazo de cartas, me surgió una duda. Así como hay algoritmos para ordenar cosas, ¿Qué pasa si lo que quiero ahora es mezclar el mazo de cartas?</p>
+      <p>Después de haber visto varios métodos de ordenamiento en clase de Algoritmos, mientras estaba ordenando un mazo de cartas para practicar, me surgió una duda. Así como hay algoritmos para ordenar cosas, ¿Qué pasa si lo que quiero ahora es mezclar el mazo de cartas?</p>
 
 <p><img src="http://javiergelatti.github.io/images/ordenar_mezclar.png" alt="3 1 2 &lt;-mezclar/ordenar-&gt; 1 2 3" /></p>
 
@@ -136,7 +136,7 @@
 
 <p>Pero, <strong>¿Cómo hago para elegir número al azar? ¿Existe algún algoritmo que pueda generar números realmente aleatorios?</strong>.</p>
 
-<p>Obviamente que si buscamos en Google “Generar números al azar en &lt;inserte su lenguaje favorito aquí&gt;” seguramente encontraremos métodos del lenguaje tipo <code>Math.random()</code>, pero la gracia, igual que con los métodos de ordenamiento, es conocer cómo funcionan esos algoritmos por dentro.</p>
+<p>Obviamente que si buscamos en Google “Generar números al azar en &lt;tu lenguaje de programación favorito aquí&gt;” seguramente encontraremos métodos del lenguaje tipo <code>Math.random()</code> que hacen justamente eso, pero la gracia, igual que con los métodos de ordenamiento, es conocer y entender cómo funcionan esos algoritmos por dentro.</p>
 
 <h2 id="los-nmeros-aleatorios">Los números aleatorios</h2>
 <p>Entonces, empecemos por lo básico, queremos saber cómo generar números aleatorios, pero ¿Qué es un número aleatorio? Por ejemplo, ¿Es <span id="span_aleatorio">7</span> un número aleatorio?
@@ -145,7 +145,7 @@
 <p>Bueno, no podemos decir nada al respecto, pero si le preguntaríamos a <em><a href="http://es.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Knuth</a></em> nos diría que:</p>
 
 <blockquote>
-  <p>En realidad nunca hablamos de si un número particular es aleatorio, si no de una <strong>secuencia de números aleatorios independientes</strong>, con una <strong>distribución</strong> particular.
+  <p>En realidad nunca hablamos de si un número particular es aleatorio, si no de una <strong>secuencia de números aleatorios independientes</strong>, con una <strong>distribución</strong> particular.<br />
 Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener ninguna relación con los otros números de la secuencia, y que cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.</p>
 </blockquote>
 
@@ -156,7 +156,7 @@ Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener n
   <li>Los números tienen una distribución particular, esto es, cada número tiene una probabilidad específica de pertenecer a un rango dado de valores.</li>
 </ol>
 
-<p>La primera afirmación nos dice que, por ejemplo, si nos dan los primeros 1000 números de una secuencia aleatoria, como cada número es obtenido de forma independiente de los demás, nos sería imposible calcular o adivinar de forma precisa cuál va a ser el siguiente número de la secuencia (solo podríamos acertar de suerte).</p>
+<p>La primera afirmación nos dice que, por ejemplo, si nos dan los primeros 1000 números de una secuencia aleatoria, como cada número es obtenido de forma independiente de los demás, nos sería imposible calcular o adivinar de forma precisa cuál va a ser el siguiente número de la secuencia (solamente podríamos acertar de suerte).</p>
 
 <p>La segunda nos dice que los números de la secuencia responden a una distribución particular. Por ejemplo, si la distribución es como la siguiente:</p>
 
@@ -164,19 +164,22 @@ Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener n
 
 <p>Vemos que es más probable obtener números entre 1 y 4 que entre 9 y 10. De todos modos, los valores de la secuencia siguien siendo aleatorios, solo que la probabilidad de encontrar números entre 1 y 4 en la secuencia es mayor que la probabilidad de encontrar números entre 9 y 10.</p>
 
-<p>Sin embargo, usualmente, cuando nos referimos a números aleatorios estamos pensando en que tenemos la misma probabilidad de obtener cualquier número, como cuando lanzamos un dado (que tenemos la misma probabilidad de obtener cualquier número del 1 al 6). Entonces, la distribución podría ser como la siguiente:</p>
+<p><a name="distribucion-uniforme"></a>
+Sin embargo, usualmente, cuando nos referimos a números aleatorios estamos pensando en que tenemos la misma probabilidad de obtener cualquier número, como cuando lanzamos un dado (que tenemos la misma probabilidad de obtener cualquier número del 1 al 6). Entonces, la distribución podría ser como la siguiente:</p>
 
 <p><img src="http://javiergelatti.github.io/images/distribucion_uniforme_continua.png" alt="Ejemplo de distribución uniforme contínua" /></p>
 
-<p>Este tipo de distribución se denomina <strong>distribución uniforme</strong>, y se denota como $U(min, max)$, donde $min$ y $max$ representan los valores máximos y mínimos. En el ejemplo, la distribución sería $U(0, 10)$.</p>
+<p>Este tipo de distribución se denomina <strong>distribución uniforme</strong>, y se denota como $U(\text{min}, \text{max})$, donde $\text{min}$ y $\text{max}$ representan el valor máximo y mínimo que podemos obtener. En el ejemplo, la distribución sería $U(0, 10)$.</p>
 
-<p>En el caso de que los números solo puedan tomar valores enteros entre 1 y 6 (como en un dado), pero no valores intermedios como 3.46, entonces tenemos una <strong>distribución uniforme discreta</strong>:</p>
+<p>En el caso de que los números sólo puedan tomar valores enteros entre 1 y 6 (como cuando lanzamos un dado, que no nos puede salir un 4,17), entonces tenemos una <strong>distribución uniforme discreta</strong>:</p>
 
 <p><img src="http://javiergelatti.github.io/images/distribucion_uniforme_discreta.png" alt="Ejemplo de distribución uniforme discreta" /></p>
 
-<p>Ahora, que cualquiera de los 6 números tenga la misma probabilidad de ser el siguiente en la secuencia no quiere decir que no pueda existir una secuencia donde aparezca 100 veces seguidas el número 4, aunque la probabilidad de que esto ocurra es bajísima ($\thicksim 1.53 \times 10^{-78}$). Además, como los números son independientes, si en la secuencia va apareciendo 99 veces seguidas el número 4, la probabilidad de que aparezca un 4 una vez más en la posición 100 sigue siendo $\frac{1}{6}$.</p>
+<p>Ahora, que cualquiera de los 6 números tenga la misma probabilidad de ser el siguiente en la secuencia no quiere decir que no pueda existir una secuencia obtenida al azar en donde aparezca 100 veces seguidas el número 4, por ejemplo, por más que esto sea muy poco probable.</p>
 
-<p>Bueno, ahora que sabemos exactamente qué es lo que queremos generar, en el siguiente post vamos a pensar de qué maneras podemos intentar generar una secuencia de números aleatorios.</p>
+<p>Además, como los números son independientes, si en la secuencia va apareciendo 99 veces seguidas el número 4, la probabilidad de que salga una vez más a continuación sigue siendo 1/6.</p>
+
+<p>Bueno, ya tenemos entonces una mejor idea sobre qué son los <em>números aleatorios</em>. En el siguiente post vamos a empezar a pensar de qué maneras podríamos intentar generarlos.</p>
 
 <h2 id="referencias">Referencias</h2>
 <ol>
@@ -185,7 +188,8 @@ Esto significa (mas o menos) que cada número fué obtenido al azar, sin tener n
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="http://javiergelatti.github.io/tags/#Simulación" title="Pages tagged Simulación" class="tag"><span class="term">Simulación</span></a><a href="http://javiergelatti.github.io/tags/#Números Aleatorios" title="Pages tagged Números Aleatorios" class="tag"><span class="term">Números Aleatorios</span></a></span>
-        
+        <span>Actualizado el <span class="entry-date date updated"><time datetime="2015-05-01">01 de mayo, 2015</time></span></span>
+        <span class="author vcard"><span class="fn">Facundo Javier Gelatti</span></span>
         
       </footer>
     </div><!-- /.entry-content -->
