@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="es"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="es"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="es"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
@@ -9,22 +9,30 @@
 <meta name="description" content="Blog de Facundo Javier Gelatti">
 <meta name="keywords" content="Simulación, Números Aleatorios">
 
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+	
+		<meta name="twitter:image" content="http://localhost:4000/images/triangulos-aleatorios.png">
+	
 
+<meta name="twitter:title" content="¿Cómo podemos generar números aleatorios?">
+<meta name="twitter:description" content="Blog de Facundo Javier Gelatti">
+<meta name="twitter:creator" content="@javiergelatti">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="es_AR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="¿Cómo podemos generar números aleatorios?">
 <meta property="og:description" content="Blog de Facundo Javier Gelatti">
-<meta property="og:url" content="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html">
+<meta property="og:url" content="http://localhost:4000/como-podemos-generar-numeros-aleatorios/">
 <meta property="og:site_name" content="Blog">
 
 <meta name="google-site-verification" content="iq6LnGCEChnCeFVuCSyAZhtcrLP3U8QG41pqGTpqkN0">
 
 
 
-<link rel="canonical" href="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html">
-<link href="http://javiergelatti.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Blog Feed">
+<link rel="canonical" href="http://localhost:4000/como-podemos-generar-numeros-aleatorios/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Blog Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -32,28 +40,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://javiergelatti.github.io/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 <!-- Webfonts -->
 <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="http://javiergelatti.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://javiergelatti.github.io/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://javiergelatti.github.io/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://javiergelatti.github.io/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://javiergelatti.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://javiergelatti.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://javiergelatti.github.io/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -62,27 +70,32 @@
 <body id="post" class="feature">
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">¡Tu navegador es demasiado viejo!</strong> Para tener una mejor experiencia en el sitio, actualizá tu navegador</a></div><![endif]-->
+
 <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
 	<button class="dl-trigger">Abrir Menu</button>
 	<ul class="dl-menu">
-		<li><a href="http://javiergelatti.github.io/">Inicio</a></li>
+		<li><a href="http://localhost:4000/">Inicio</a></li>
 		<li>
 			<a href="#">Acerca de</a>
 			<ul class="dl-submenu">
 				<li>
-					<img src="http://javiergelatti.github.io/images/avatar.jpg" alt="Facundo Javier Gelatti photo" class="author-photo">
+					<img src="http://localhost:4000/images/avatar.jpg" alt="Facundo Javier Gelatti photo" class="author-photo">
 					<h4>Facundo Javier Gelatti</h4>
-					<p>Me gusta aprender y crear cosas que valgan la pena. Estudiante de 4to año de ISI, UTN-FRT</p>
+					<p>Me gusta aprender, compartir con los demás y crear cosas que valgan la pena. Estudiante avanzado de ISI, UTN-FRT</p>
 				</li>
-				<li><a href="http://javiergelatti.github.io/about/">Acerca de</a></li>
+				<!--<li><a href="http://localhost:4000/about/">Acerca de</a></li>-->
 				<li>
 					<a href="mailto:javiergelatti@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
 				</li>
+				<li>
+					<a href="https://twitter.com/javiergelatti"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
 				
 				
 				
-				
-				
+				<li>
+					<a href="https://github.com/javiergelatti"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
 				
 				
 				
@@ -92,8 +105,8 @@
 		<li>
 			<a href="#">Posts</a>
 			<ul class="dl-submenu">
-				<li><a href="http://javiergelatti.github.io/posts/">Todos los Posts</a></li>
-				<li><a href="http://javiergelatti.github.io/tags/">Tags</a></li>
+				<li><a href="http://localhost:4000/posts/">Todos los Posts</a></li>
+				<li><a href="http://localhost:4000/tags/">Tags</a></li>
 			</ul>
 		</li>
 		
@@ -106,7 +119,7 @@
   
   <div class="entry-image">
     
-        <img src="http://javiergelatti.github.io/images/triangulos-aleatorios.png" alt="¿Cómo podemos generar números aleatorios?">
+        <img src="http://localhost:4000/images/triangulos-aleatorios.png" alt="¿Cómo podemos generar números aleatorios?">
     
   </div><!-- /.entry-image -->
 </div><!-- /.entry-header -->
@@ -117,11 +130,18 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="http://javiergelatti.github.io/2015/04/27/como-podemos-generar-numeros-aleatorios.html" rel="bookmark" title="¿Cómo podemos generar números aleatorios?">¿Cómo podemos generar números aleatorios?</a></h1>
+          <h1 class="entry-title"><a href="http://localhost:4000/como-podemos-generar-numeros-aleatorios/" rel="bookmark" title="¿Cómo podemos generar números aleatorios?">¿Cómo podemos generar números aleatorios?</a></h1>
         
         <h2>
           <span class="entry-date date published"><time datetime="2015-04-27T11:40:00-03:00">abril 27, 2015</time></span>
         </h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Tiempo de lectura ~8 minutos
+
+        </p><!-- /.entry-reading-time -->
         
       </div><!-- /.header-title-wrap -->
     </header>
@@ -130,21 +150,21 @@
 
 <p>Incluso, los números aleatorios pueden usarse simplemente para <em>crear cosas bonitas</em>. Por ejemplo, la imagen de este post fué generada utilizando números aleatorios (<a href="#cdigo-de-la-imagen-del-post">mas abajo</a> está el código que se usó para eso).</p>
 
-<h2 id="cmo-podemos-generar-nmeros-aleatorios">¿Cómo podemos generar números aleatorios?</h2>
+<h2 id="cómo-podemos-generar-números-aleatorios">¿Cómo podemos generar números aleatorios?</h2>
 
 <h3 id="podemos-usar-software">¿Podemos usar Software?</h3>
 <p>¿Puede una computadora generar números realmente aleatorios usando un algoritmo?</p>
 
-<p><img src="http://javiergelatti.github.io/images/algoritmo_nros_aleatorios.png" alt="Entradas-&gt;Algoritmo X-&gt;Secuencia de números aleatorios" /></p>
+<p><img src="http://localhost:4000/images/algoritmo_nros_aleatorios.png" alt="Entradas-&gt;Algoritmo X-&gt;Secuencia de números aleatorios" /></p>
 
-<p>Después de todo, si tenemos un algoritmo que genere los números determinísticamente, ya estamos violando una de las <a href="/2015/04/19/que-es-un-numero-aleatorio.html#los-nmeros-aleatorios">afirmaciones sobre los números aleatorios</a>, que nos dice que <em>los números son obtenidos <strong>al azar</strong> de forma independiente</em>. Siempre podríamos saber cuál va a ser el número siguiente de la secuencia si tenemos el algoritmo que la genera y lo ejecutamos con las mismas entradas, por lo que los números no habrían sido obtenidos realmente al azar. ¿Y si no podemos saber de ninguna forma cuáles fueron las entradas para volver a ejecutar el algoritmo? Entonces significa que las entradas habrán sido aleatorias, entonces ¿Cómo hicimos para obtenerlas? (estamos en la misma).</p>
+<p>Después de todo, si tenemos un algoritmo que genere los números determinísticamente, ya estamos violando una de las <a href="/que-es-un-numero-aleatorio/#los-nmeros-aleatorios">afirmaciones sobre los números aleatorios</a>, que nos dice que <em>los números son obtenidos <strong>al azar</strong> de forma independiente</em>. Siempre podríamos saber cuál va a ser el número siguiente de la secuencia si tenemos el algoritmo que la genera y lo ejecutamos con las mismas entradas, por lo que los números no habrían sido obtenidos realmente al azar. ¿Y si no podemos saber de ninguna forma cuáles fueron las entradas para volver a ejecutar el algoritmo? Entonces significa que las entradas habrán sido aleatorias, entonces ¿Cómo hicimos para obtenerlas? (estamos en la misma).</p>
 
 <p>En definitiva, este problema lo va a tener cualquier algoritmo. Por lo tanto (al parecer) no podemos hacer demasiado usando <em>Software</em>. Entonces, si no podemos procesar los números, ¿Qué tal si los obtenemos de otra forma y los guardamos para usarlos después?</p>
 
 <p>Podríamos construir una tabla gigante con números generados usando eventos aleatorios, por ejemplo números obtenidos al azar (a mano) de reportes de censos o tirando un dado un montón (pero un <em>montón</em>) de veces, y cargarla en la computadora. Los programas entonces irían extrayendo los números de ahí. Y si no se nos ocurre de dónde sacar los números para la tabla, bueno, hay algunos libros que tienen justamente eso:</p>
 
 <figure>
-<img src="http://javiergelatti.github.io/images/a_million_random_digits.jpg" alt="A Million Random Numbers" />
+<img src="http://localhost:4000/images/a_million_random_digits.jpg" alt="A Million Random Numbers" />
 <figcaption>
 Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www.amazon.com/Million-Random-Digits-Normal-Deviates/dp/0833030477/#revDivider">lean las reseñas en Amazon</a>)
 </figcaption>
@@ -154,7 +174,7 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 
 <p>Entonces, ¿Qué otra forma puede haber para obtener los números (que no sea una tabla que haya que cargar)?. Bueno, podríamos pensar algo para generar los números usando <em>Hardware</em>.</p>
 
-<h3 id="intentando-generar-los-nmeros-con-hardware">Intentando generar los números con Hardware</h3>
+<h3 id="intentando-generar-los-números-con-hardware">Intentando generar los números con Hardware</h3>
 <p>Por ejemplo, podemos conectarle a la computadora algún dispositivo físico que sirva como fuente de eventos aleatorios, desde un sensor de ruido térmico o atmosférico, hasta un robot que lance un dado y lea el resultado. <a href="http://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators">En Wikipedia podemos encontrar una lista comparando algunos de estos generadores</a>.</p>
 
 <p>Pero bueno, usar un dispositivo Hardware tiene sus inconvenientes, porque pueden ser caros, no generar los números con velocidad suficiente, o ser frágiles. Para colmo, los fallos son bastante difíciles de detectar (¿Cómo podríamos detectar, dadas las secuencias aleatorias que genera la máquina, si tiene alguna falla?).</p>
@@ -173,7 +193,7 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 <p>Entonces, hagamos un <em>bosquejo</em> de los <strong>Requerimientos</strong> que necesitamos para nuestro generador de números “aleatorios” (pseudoaleatorios realmente):</p>
 
 <ol>
-  <li>El generador va a generar los números respetando siempre una <em>distribución</em> específica. Vamos a optar por la <a href="/2015/04/19/que-es-un-numero-aleatorio.html#distribucion-uniforme">distribución uniforme</a> para la generación.</li>
+  <li>El generador va a generar los números respetando siempre una <em>distribución</em> específica. Vamos a optar por la <a href="/que-es-un-numero-aleatorio/#distribucion-uniforme">distribución uniforme</a> para la generación.</li>
   <li>El <em>período</em> del generador debe ser grande. Esto es, si el generador, habiendo ya generado $k$ números, empieza a repetir toda o parte de la secuencia, $k$ debe ser grande.</li>
   <li>Se debe poder guardar el <em>estado</em> del generador, para poder repetir los números generados si se desea (por ejemplo, para ejecutar una prueba del programa).</li>
   <li>El generador debe ser <em>eficiente</em> en cuanto al tiempo de generación. No nos interesa un generador que se demore un mes para darnos el primer número.</li>
@@ -193,7 +213,7 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
   <li>Colaboradores de Wikipedia (2015) <a href="http://en.wikipedia.org/wiki/Hardware_random_number_generator">Hardware Random Number Generator</a>, Wikipedia, La enciclopedia libre.</li>
 </ol>
 
-<h2 id="cdigo-de-la-imagen-del-post">Código de la imagen del post</h2>
+<h2 id="código-de-la-imagen-del-post">Código de la imagen del post</h2>
 <p>Aquí está el código que escribí para generar la imagen del post. Cada vez que se ejecuta genera una imagen diferente. El color, tamaño y posición de los triángulos se obtienen de forma aleatoria.</p>
 
 <p data-height="268" data-theme-id="14150" data-slug-hash="XJvPpW" data-default-tab="result" data-user="javiergelatti" class="codepen">
@@ -204,21 +224,20 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
 
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="http://javiergelatti.github.io/tags/#Simulación" title="Pages tagged Simulación" class="tag"><span class="term">Simulación</span></a><a href="http://javiergelatti.github.io/tags/#Números Aleatorios" title="Pages tagged Números Aleatorios" class="tag"><span class="term">Números Aleatorios</span></a></span>
+        <span class="entry-tags"><a href="http://localhost:4000/tags/#Simulación" title="Pages tagged Simulación" class="tag"><span class="term">Simulación</span></a><a href="http://localhost:4000/tags/#Números Aleatorios" title="Pages tagged Números Aleatorios" class="tag"><span class="term">Números Aleatorios</span></a></span>
         <span>Actualizado el <span class="entry-date date updated"><time datetime="2015-05-01">01 de mayo, 2015</time></span></span>
         <span class="author vcard"><span class="fn">Facundo Javier Gelatti</span></span>
-        
       </footer>
     </div><!-- /.entry-content -->
     <section id="disqus_thread"></section><!-- /#disqus_thread -->
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html" class="read-more-btn">Quizás te interese</a>
+      <a href="http://localhost:4000/que-es-un-numero-aleatorio/" class="read-more-btn">Quizás te interese</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html" title="¿Qué es un número aleatorio?">¿Qué es un número aleatorio?</a></h3>
-      <p>Después de haber visto varios métodos de ordenamiento en clase de Algoritmos, mientras estaba ordenando un mazo de cartas para practicar,...&hellip; <a href="http://javiergelatti.github.io/2015/04/19/que-es-un-numero-aleatorio.html">Seguir Leyendo</a></p>
+      <h3><a href="http://localhost:4000/que-es-un-numero-aleatorio/" title="¿Qué es un número aleatorio?">¿Qué es un número aleatorio?</a></h3>
+      <p>Después de haber visto varios métodos de ordenamiento en clase de Algoritmos, mientras estaba ordenando un mazo de cartas para practicar,...&hellip; <a href="http://localhost:4000/que-es-un-numero-aleatorio/">Seguir Leyendo</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
@@ -233,16 +252,17 @@ Libro "Un millón de dígitos aleatorios" (Si saben inglés, <a href="http://www
     <span>
 Este trabajo está bajo una licencia <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons (CC BY-SA 4.0)</a>.
 
-Creado en <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> usando <a href="http://mademistakes.com/hpstr/" rel="notfollow">el tema HPSTR</a>.<br />
+Creado en <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> usando <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">el tema HPSTR</a>.<br />
 
 La imagen de fondo está basada en <a href="http://karoliskj.deviantart.com/art/Triangular-Pattern-326992420">Triangular Pattern</a> de KarolisKJ (CC BY-NC-SA 3.0).
 </span>
+
   </footer>
 </div><!-- /.footer-wrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://javiergelatti.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="http://javiergelatti.github.io/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 
 <!-- Asynchronous Google Analytics snippet -->
@@ -278,7 +298,6 @@ MathJax.Hub.Config({
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'javiergelatti'; // required: replace example with your forum shortname
-        var disqus_identifier = '/2015/04/27/como-podemos-generar-numeros-aleatorios';
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
@@ -286,9 +305,18 @@ MathJax.Hub.Config({
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
     </script>
-    <noscript>Debes habilitar JavaScript para poder ver los <a href="http://disqus.com/?ref_noscript">comentarios en Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 	        
 
 </body>
