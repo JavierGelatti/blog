@@ -206,7 +206,7 @@ function palabrasASpan(textNode) {
 function transformarPalabras(textNode) {
     var temp = document.createElement('div')
     temp.innerHTML = palabrasASpan(textNode)
- 
+
     while (temp.firstChild) {
         textNode.parentNode.insertBefore(temp.firstChild, textNode);
     }
