@@ -1,1 +1,1 @@
-Sitemap: https://javiergelatti.github.io/sitemap.xml
+Sitemap: https://javiergelatti.xyz/blog/sitemap.xml
