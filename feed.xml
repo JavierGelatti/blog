@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://javiergelatti.xyz/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.10.0">Jekyll</generator><link href="https://javiergelatti.xyz/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://javiergelatti.xyz/blog/" rel="alternate" type="text/html" /><updated>2025-02-14T04:17:24-03:00</updated><id>https://javiergelatti.xyz/blog/</id><title type="html">Blog</title><subtitle>Blog de Facundo Javier Gelatti</subtitle><entry><title type="html">Smalltalks 2017 - Entrevista con Hernan Wilkinson</title><link href="https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson/" rel="alternate" type="text/html" title="Smalltalks 2017 - Entrevista con Hernan Wilkinson" /><published>2018-05-14T00:00:00-03:00</published><updated>2018-05-14T00:00:00-03:00</updated><id>https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson</id><content type="html" xml:base="https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson/">&lt;p&gt;Esta es la tercera entrevista que realicé luego de las Smalltalks 2017, en la ciudad de La Plata. Esta vez entrevisto a &lt;a href=&quot;https://twitter.com/hernanwilkinson&quot;&gt;Hernán Wilkinson&lt;/a&gt;, de 10Pines. Está disponible la transcripción de la entrevista, incluyendo algunos links.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://javiergelatti.xyz/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.10.0">Jekyll</generator><link href="https://javiergelatti.xyz/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://javiergelatti.xyz/blog/" rel="alternate" type="text/html" /><updated>2025-02-14T04:34:10-03:00</updated><id>https://javiergelatti.xyz/blog/</id><title type="html">Blog</title><subtitle>Blog de Facundo Javier Gelatti</subtitle><entry><title type="html">Smalltalks 2017 - Entrevista con Hernan Wilkinson</title><link href="https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson/" rel="alternate" type="text/html" title="Smalltalks 2017 - Entrevista con Hernan Wilkinson" /><published>2018-05-14T00:00:00-03:00</published><updated>2018-05-14T00:00:00-03:00</updated><id>https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson</id><content type="html" xml:base="https://javiergelatti.xyz/blog/smalltalks-2017-entrevista-con-hernan-wilkinson/">&lt;p&gt;Esta es la tercera entrevista que realicé luego de las Smalltalks 2017, en la ciudad de La Plata. Esta vez entrevisto a &lt;a href=&quot;https://twitter.com/hernanwilkinson&quot;&gt;Hernán Wilkinson&lt;/a&gt;, de 10Pines. Está disponible la transcripción de la entrevista, incluyendo algunos links.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://photos.google.com/share/AF1QipOWsOFjvYHzf7RG1yeZwnlUuSWaJojPGTF9s_Bt7vPa9gNZTDo3JW-8HmuZHPGfVg/photo/AF1QipPl38LX8bA9OfFTeFwJMqe7ydhm6V6pkpl-woaW?key=N0VoRE1YbUxZRmRRNXY3T1lSNktSV29mTmYxMTVR&quot;&gt;&lt;img src=&quot;https://javiergelatti.xyz/blog/images/hernan_wilkinson.jpg&quot; alt=&quot;Hernan Wilkinson (por Emilio Oca)&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/media/smalltalks2017_hernan_wilkinson.ogg&quot;&gt;
+&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/blog/media/smalltalks2017_hernan_wilkinson.ogg&quot;&gt;
 Parece que tu navegador no soporta el elemento audio :(&lt;br /&gt;
 Podés probar &lt;a href=&quot;&quot;&gt;escuchando desde Soundcloud&lt;/a&gt;.
 &lt;/audio&gt;
@@ -120,7 +120,7 @@ audio.ontimeupdate = function() {
 
 &lt;p&gt;&lt;a href=&quot;https://photos.google.com/share/AF1QipOWsOFjvYHzf7RG1yeZwnlUuSWaJojPGTF9s_Bt7vPa9gNZTDo3JW-8HmuZHPGfVg/photo/AF1QipP70OeMDVglbIAIRxT6fe_UYIZdqH0lVrRH2TFk?key=N0VoRE1YbUxZRmRRNXY3T1lSNktSV29mTmYxMTVR&quot;&gt;&lt;img src=&quot;https://javiergelatti.xyz/blog/images/brian_foote.jpg&quot; alt=&quot;Brian Foote (por Emilio Oca)&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/media/smalltalks2017_brian_foote.ogg&quot;&gt;
+&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/blog/media/smalltalks2017_brian_foote.ogg&quot;&gt;
 Parece que tu navegador no soporta el elemento audio :(&lt;br /&gt;
 Podés probar &lt;a href=&quot;https://soundcloud.com/facundo-javier-gelatti/smalltalks-2017-interview-with-brian-foote&quot;&gt;escuchando desde Soundcloud&lt;/a&gt;.
 &lt;/audio&gt;
@@ -284,7 +284,7 @@ audio.ontimeupdate = function() {
 
 &lt;p&gt;&lt;a href=&quot;https://photos.google.com/share/AF1QipOcSPviy6_nL9vlUBjqsK2xycd1XtLxLXrWwYog_a4IurSX1UiuJGnKTHxQuRAG-g/photo/AF1QipPWsK823VfZRynsX6mn1OZp_H3gw8CoVkrJ5TEZ?key=RjUyY2lEc0FtOF8tVGhWRVJjNHFiRU14R215SHZB&quot;&gt;&lt;img src=&quot;https://javiergelatti.xyz/blog/images/james_foster.jpg&quot; alt=&quot;James Foster (por Emilio Oca)&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/media/smalltalks2017_james_foster.ogg&quot;&gt;
+&lt;audio controls=&quot;controls&quot; preload=&quot;auto&quot; src=&quot;/blog/media/smalltalks2017_james_foster.ogg&quot;&gt;
 Parece que tu navegador no soporta el elemento audio :(&lt;br /&gt;
 Podés probar &lt;a href=&quot;https://soundcloud.com/facundo-javier-gelatti/smalltalks-2017-interview-with-james-foster&quot;&gt;escuchando desde Soundcloud&lt;/a&gt;.
 &lt;/audio&gt;
